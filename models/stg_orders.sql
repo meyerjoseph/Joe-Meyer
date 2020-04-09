@@ -7,8 +7,7 @@ select
     id as order_id,
     user_id as customer_id,
     order_date,
-    status,
-    payments.amount
-from raw.jaffle_shop.orders
+    status
+from raw.jaffle_shop.orders as orders
 
 --group up by payments table
