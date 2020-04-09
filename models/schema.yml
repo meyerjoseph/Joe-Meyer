@@ -1,5 +1,10 @@
 version: 2
 models:
+  - name: orders
+    columns:
+      - name: Amount
+        tests:
+        - not_null
   - name: customers
     columns:
       - name: customer_id
