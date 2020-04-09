@@ -9,10 +9,6 @@ select * from {{ ref('stg_orders') }}
 
 customers as (
     select * from {{ ref('stg_customers')}}
-),
-
-lifevalue as (
-    select * from {{ ref('stg_life_time_value')}}
 )
 
 select
@@ -20,12 +16,10 @@ orders.order_id,
 orders.customer_id,
 customers.first_name,
 customers.last_name,
-sum(payments.amount) as life_time_value
+payments.amount
 from orders
 left join payments on orders.customer_id = payments.order_id
 left join customers on orders.customer_id = customers.customer_id
-left join lifevalue on orders.customer_id = lifevalue.order_id
-group by 2, 3, 4, 1
 order by 2
 
 
