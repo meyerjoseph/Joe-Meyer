@@ -16,7 +16,7 @@ orders.order_id,
 orders.customer_id,
 customers.first_name,
 customers.last_name,
-payments.amount
+payments.amount as amount
 from orders
 left join payments on orders.customer_id = payments.order_id
 left join customers on orders.customer_id = customers.customer_id
