@@ -1,8 +1,3 @@
-with payments as (
-
-select * from {{ ref('stg_stripe_payments') }}
-)
-
 select
     id as order_id,
     user_id as customer_id,
